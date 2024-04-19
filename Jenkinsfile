@@ -5,7 +5,7 @@ pipeline {
    stages { 
     stage('Nginx Install') {
       agent {
-        dockerAgent {
+        docker {
           image 'nginx:latest'
         }
       }
