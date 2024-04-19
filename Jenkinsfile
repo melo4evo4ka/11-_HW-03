@@ -1,16 +1,19 @@
 #!groovy
 
 pipeline {
-   agent none
-   stages { 
+  agent none
+  stages {
     stage('Nginx Install') {
       agent {
         docker {
           image 'nginx:latest'
         }
       }
-    }    
-     stage('Docker Build') {
+      steps {
+        sh 'echo hello_word'
+      }
+    }
+    stage('Docker Build') {
       agent any
       steps {
         sh 'docker build -t nginx/nginx:latest .'
@@ -25,6 +28,5 @@ pipeline {
         }
       }
     }
-   }
- }
-
+  }
+}
