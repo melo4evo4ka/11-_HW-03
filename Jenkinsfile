@@ -30,9 +30,7 @@ pipeline {
     stage('RUN script') {
       agent any
       steps {
-         {
           sh 'bash -vx script.sh'
-        }
       }
     }
   }
