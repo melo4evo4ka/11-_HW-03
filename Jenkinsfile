@@ -16,7 +16,7 @@ pipeline {
     stage('Docker Build') {
       agent any
       steps {
-        sh 'docker build -t nginx/nginx:latest .'
+        sh 'docker build -t nginx:latest .'
       }
     }
     stage('Docker Push') {
