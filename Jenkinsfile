@@ -1,13 +1,17 @@
 #!groovy
 
 pipeline {
-  agent none
-  stages {
-    stage('Docker Build') {
-      agent any
-      steps {
-        sh 'docker build -t shanem/spring-petclinic:latest .'
-      }
-    }
-  }
-}
+   agent none
+   stages {     
+    stage('Nginx Install') {
+      agent {         
+       docker {          
+         image 'nginx:latest'         
+     }       
+  }       
+  steps {
+       sh 'mvn clean install'
+       }
+     }
+   }
+ }
