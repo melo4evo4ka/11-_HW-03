@@ -6,7 +6,7 @@ echo "--------"
 #echo ${localFile}
 file = "$(curl -sL http://158.160.61.221:9889 | md5sum | cut -d ' ' -f 1)"
 
-if [ "$localFile" = "$file" ]; then
+if [ localFile == file ]; then
 	echo "success"
 else
 	echo "Failed md5"
