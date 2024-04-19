@@ -4,6 +4,7 @@ pipeline {
    agent none
    stages {     
     stage('Nginx Install') {
+     agent any
      steps {
 	sh "docker run -p 9889:80 -d --name nginx nginx:latest"
 	}
