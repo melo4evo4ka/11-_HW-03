@@ -11,7 +11,7 @@ file="$(curl -sL http://158.160.61.221:9889 | md5sum | cut -d ' ' -f 1)"
 echo $localFile
 echo $file
 
-if [ localFile == file ]; then
+if [ $localFile == $file ]; then
 #	echo "success"
 curl -s -X POST https://api.telegram.org/bot7126049267:AAGbxN5AHRzFgXa_ENMC8xdAVjJCQuy2lSI/sendMessage -d chat_id=729788143 -d parse_mode=markdown -d text='*ОК* : MD5 GOOD'
 else
