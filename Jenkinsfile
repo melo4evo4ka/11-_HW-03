@@ -47,7 +47,7 @@ pipeline {
     stage('Delete container') {
       agent any
       steps {
-          sh 'docker rm myapp'
+          sh 'docker rm -f myapp'
       }
     }
   }

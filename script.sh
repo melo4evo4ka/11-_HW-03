@@ -2,10 +2,11 @@
 #CHAT_ID = 729788143
 #TOKEN = '7126049267:AAGbxN5AHRzFgXa_ENMC8xdAVjJCQuy2lSI' 
 #ls -la ${WORKSPACE} 
-localFile = "$(md5sum "${WORKSPACE}/index.html" | cut -d ' ' -f 1)"
+
+localFile="$(md5sum "${WORKSPACE}/index.html" | cut -d ' ' -f 1)"
 echo "--------"
 #echo ${localFile}
-file = "$(curl -sL http://158.160.61.221:9889 | md5sum | cut -d ' ' -f 1)"
+file="$(curl -sL http://158.160.61.221:9889 | md5sum | cut -d ' ' -f 1)"
 
 echo $localFile
 echo $file
