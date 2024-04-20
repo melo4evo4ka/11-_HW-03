@@ -24,7 +24,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-	  sh "docker run -d -p 9889:80 nginx:latest"
+	  sh "docker run -d -p 9889:80 --name myapp nginx:latest"
         }
       }
     }
@@ -42,6 +42,12 @@ pipeline {
       agent any
       steps {
           sh 'bash -vx script.sh'
+      }
+    }
+    stage('Delete container') {
+      agent any
+      steps {
+          sh 'docker rm myapp'
       }
     }
   }
