@@ -48,6 +48,7 @@ pipeline {
       agent any
       steps {
           sh 'docker rm -f myapp'
+	  sh 'docker rmi nginx:latest'
       }
     }
   }
