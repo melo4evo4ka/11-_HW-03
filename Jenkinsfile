@@ -10,7 +10,7 @@ pipeline {
         }
       }
       steps {
-        sh 'echo hello_word'
+        sh 'echo hello_world'
       }
     }
     stage('Docker Build') {
