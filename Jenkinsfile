@@ -13,14 +13,12 @@ pipeline {
         sh 'echo hello_word'
       }
     }
-/*
     stage('Docker Build') {
       agent any
       steps {
         sh 'docker build -t nginx:latest .'
       }
     }
-*/
     stage('Docker Push') {
       agent any
       steps {
