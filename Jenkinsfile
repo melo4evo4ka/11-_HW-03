@@ -38,9 +38,10 @@ pipeline {
         }
 	}
      }
-    stage('RUN script') {
+    stage('RUN scripts') {
       agent any
       steps {
+	  sh 'bash -vx script_curl.sh'
           sh 'bash -vx script.sh'
       }
     }
