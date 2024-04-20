@@ -7,14 +7,14 @@ echo "--------"
 #echo ${localFile}
 file = "$(curl -sL http://158.160.61.221:9889 | md5sum | cut -d ' ' -f 1)"
 
-echo $localFile
-echo $file
+echo localFile
+echo file
 
 if [ localFile == file ]; then
 #	echo "success"
-	 curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *ОК* : MD5 GOOD'
+	 curl -s -X POST https://api.telegram.org/bot+TOKEN+/sendMessage -d chat_id=CHAT_ID -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *ОК* : MD5 GOOD'
 else
 #	echo "Failed md5"
-	curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *BAD* : MD5 BAD'
+	curl -s -X POST https://api.telegram.org/bot+TOKEN+/sendMessage -d chat_id=CHAT_ID -d parse_mode=markdown -d text='*${env.JOB_NAME}* : POC *Branch*: ${env.GIT_BRANCH} *BAD* : MD5 BAD'
 fi
 
